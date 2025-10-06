@@ -45,7 +45,73 @@ int cuentaPares(int *arr, int size) {
 	}
 	return conteo; // Retorna el numero total de pares encontrados.
 }
+// Funcion principal del programa.
+void main() {
+    // Prueba de la funcion swap
+	printf("Prueba de la funcion swap\n");
+	int a = 5, b = 10;
+	printf("Valores iniciales: a = %d, b = %d\n", a, b);
+	swap(&a, &b);
+	printf("Valores despues de swap: a = %d, b = %d\n", a, b);
+	
+    // Prueba de la funcion swap con valores que pueden ser problematicos
+    printf("\nPrueba de la funcion swap con valores problematicos\n");
+    int a2 = '\0', b2 = 1;
+    printf("Valores iniciales: a = %d, b = %d\n", a2, b2);
+    swap(&a2, &b2);
+    printf("Valores despues de swap: a = %d, b = %d\n", a2, b2);
 
-void main(){
+    // Prueba de la funcion longitudCadena
+	printf("\nPrueba de la funcion longitudCadena\n");
+	char cadena[] = "Esto es una prueba";
+	int longitud = longitudCadena(cadena);
+	printf("La longitud de la cadena '%s' es: %d\n", cadena, longitud);
+	
+	// Prueba de la funcion longitudCadena con cadena vacia
+    printf("\nPrueba de la funcion longitudCadena con cadena vacia\n");
+    char cadena_vacia[] = "";
+    int longitud_vacia = longitudCadena(cadena_vacia);
+    printf("La longitud de la cadena '%s' es: %d\n", cadena_vacia, longitud_vacia);
 
+    // Prueba de la funcion invertirArreglo
+	printf("\nPrueba de la funcion invertirArreglo\n");
+	int arr[] = {1, 2, 3, 4, 5};
+	int size = sizeof(arr) / sizeof(arr[0]);
+	printf("Arreglo original: {1, 2, 3, 4, 5}\n");
+	invertirArreglo(arr, size);
+	printf("Arreglo invertido: {");
+	for (int i = 0; i < size; i++) {
+		printf("%d%s", arr[i], (i < size - 1) ? ", " : "");
+	}
+	printf("}\n");
+	
+	// Prueba de la funcion invertirArreglo con arreglo vacio
+    printf("\nPrueba de la funcion invertirArreglo con arreglo vacio\n");
+    int arr_vacio[] = {};
+    int size_vacio = 0;
+    printf("Arreglo original: {}\n");
+    invertirArreglo(arr_vacio, size_vacio);
+    printf("Arreglo invertido: {}\n");
+
+    // Prueba de la funcion invertirArreglo con un solo elemento
+    printf("\nPrueba de la funcion invertirArreglo con un solo elemento\n");
+    int arr_uno[] = {99};
+    int size_uno = 1;
+    printf("Arreglo original: {99}\n");
+    invertirArreglo(arr_uno, size_uno);
+    printf("Arreglo invertido: {%d}\n", arr_uno[0]);
+
+    // Prueba de la funcion cuentaPares
+	printf("\nrueba de la funcion cuentaPares\n");
+	int arrPares[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+	int sizePares = sizeof(arrPares) / sizeof(arrPares[0]);
+	int numPares = cuentaPares(arrPares, sizePares);
+	printf("El arreglo {1, 2, 3, 4, 5, 6, 7, 8, 9, 10} tiene %d numeros pares.\n", numPares);
+	
+	// Prueba de la funcion cuentaPares sin pares
+    printf("\nPrueba de la funcion cuentaPares con arreglo sin pares\n");
+    int arr_impares[] = {1, 3, 5, 7, 9};
+    int size_impares = sizeof(arr_impares) / sizeof(arr_impares[0]);
+    int num_pares_impares = cuentaPares(arr_impares, size_impares);
+    printf("El arreglo {1, 3, 5, 7, 9} tiene %d numeros pares.\n", num_pares_impares);
 }
